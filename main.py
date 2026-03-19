@@ -14,7 +14,7 @@ def main():
 
     src, tgt = tokenize_pairs(pairs)
 
-    vocab_size = tokenizer.vocab_size
+    vocab_size = 5000
 
     model = SimpleTransformer(vocab_size)
 
@@ -25,6 +25,16 @@ def main():
     output = generate(model, test_src, tokenizer)
 
     print("Generated:", output)
+
+    print("\nOverfitting test:")
+
+    test_src = src[0].unsqueeze(0)
+    test_tgt = tgt[0]
+
+    generated = generate(model, test_src, tokenizer)
+
+    print("Expected:", test_tgt.tolist())
+    print("Generated:", generated)
 
 
 if __name__ == "__main__":

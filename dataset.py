@@ -2,7 +2,7 @@ from datasets import load_dataset
 
 
 def load_data():
-    dataset = load_dataset("bentrevett/multi30k", split="train[:1000]")
+    dataset = load_dataset("bentrevett/multi30k", split="train[:200]")
 
     pairs = []
 
