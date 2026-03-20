@@ -18,7 +18,7 @@ def main():
 
     model = SimpleTransformer(vocab_size)
 
-    train(model, src, tgt, epochs=10)
+    train(model, src, tgt, epochs=20)
 
     test_src = src[0].unsqueeze(0)
 
@@ -33,8 +33,11 @@ def main():
 
     generated = generate(model, test_src, tokenizer)
 
-    print("Expected:", test_tgt.tolist())
-    print("Generated:", generated)
+    print("Expected (target):")
+    print(test_tgt.tolist())
+
+    print("\nGenerated:")
+    print(generated)
 
 
 if __name__ == "__main__":

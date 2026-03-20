@@ -3,6 +3,11 @@ import torch.nn as nn
 import torch.optim as optim
 
 
+import torch
+import torch.nn as nn
+import torch.optim as optim
+
+
 def train(model, src, tgt, epochs=10):
 
     criterion = nn.CrossEntropyLoss(ignore_index=0)
@@ -12,7 +17,6 @@ def train(model, src, tgt, epochs=10):
 
         optimizer.zero_grad()
 
-        # shift target
         input_tgt = tgt[:, :-1]
         target = tgt[:, 1:]
 

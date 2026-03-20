@@ -1,7 +1,7 @@
 import torch
 
 
-def generate(model, src, tokenizer, max_len=10):
+def generate(model, src, tokenizer, max_len=20):
 
     model.eval()
 
@@ -11,7 +11,8 @@ def generate(model, src, tokenizer, max_len=10):
 
         tgt = torch.tensor([generated])
 
-        output = model(src, tgt)
+        with torch.no_grad():
+            output = model(src, tgt)
 
         next_token = output[:, -1, :].argmax(dim=-1).item()
 
